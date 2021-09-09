@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="net.scit.board.vo.Member" alias="Member" />
-		<typeAlias type="net.scit.board.vo.Board"  alias="Board" />
+		<typeAlias type="net.scit.pp.vo.Member" alias="Member" />
+		<typeAlias type="net.scit.pp.vo.Board"  alias="Board" />
 	</typeAliases>
 	
 	<mappers>
