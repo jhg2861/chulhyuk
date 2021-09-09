@@ -1,4 +1,4 @@
-package net.scit.board.vo;
+package net.scit.pp.vo;
 
 import lombok.Data;
 

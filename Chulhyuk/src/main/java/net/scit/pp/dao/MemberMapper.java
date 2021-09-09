@@ -1,6 +1,6 @@
 package net.scit.pp.dao;
 
-import net.scit.board.vo.Member;
+import net.scit.pp.vo.Member;
 
 public interface MemberMapper {
 	// 회원가입

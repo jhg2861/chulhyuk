@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import net.scit.board.vo.Member;
+import net.scit.pp.vo.Member;
 
 @Repository
 public class MemberRepository {

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import net.scit.board.vo.Member;
+import net.scit.pp.dao.MemberRepository;
+import net.scit.pp.vo.Member;
 import oracle.net.aso.s;
 
 @Controller
