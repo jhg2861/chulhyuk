@@ -9,7 +9,7 @@
 <title>회원게시판</title>
 </head>
 <body>
-<h2>[ 회원 게시판 ]</h2>
+<h2>[ 회원 게시판 ssss]</h2>
 <ul>
 	<c:if test="${sessionScope.loginId == null}">
 		<li><a href="join">회원가입</a></li>
