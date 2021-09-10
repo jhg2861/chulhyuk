@@ -9,7 +9,15 @@
 <title>회원게시판</title>
 </head>
 <body>
+<<<<<<< HEAD
 <h2>[ 회원 게시판  ]</h2>
+=======
+<<<<<<< HEAD
+<h2>[ 회원 게시판 6 ]</h2>
+=======
+<h2>[ 회원 게시판 4 ]</h2>
+>>>>>>> branch 'main' of https://github.com/jhg2861/chulhyuk.git
+>>>>>>> refs/heads/main
 <ul>
 	<c:if test="${sessionScope.loginId == null}">
 		<li><a href="join">회원가입</a></li>
