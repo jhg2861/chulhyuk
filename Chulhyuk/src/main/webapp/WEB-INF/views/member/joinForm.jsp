@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="wrapper">
-	<h2>[ 회원가입!!!! ]</h2>
+	<h2>[ 회원가입 ]</h2>
 	<form id="join" action="join" method="POST">
 		<table border="1">
 			<tr>
