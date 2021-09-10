@@ -26,7 +26,7 @@ function boardList() {
 </head>
 <body>
 <div class="wrapper">
-	<h2>[ 게시판 글쓰기 ]</h2>
+	<h2>[ 게시판 글쓰기 !!! ]</h2>
 	<form action="writeboard" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="userid" value="${sessionScope.loginId}">
 		
