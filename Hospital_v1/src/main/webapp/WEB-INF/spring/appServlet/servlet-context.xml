@@ -23,6 +23,20 @@
 	
 	<context:component-scan base-package="scit.team.hospital" />
 	
+		<!-- LoginInterceptor클래스를 bean으로 등록 -->
+	<beans:bean id="loginInterceptor" class="scit.team.hospital.intercepter.LoginInterceptor" />
+	
+	
+	<interceptors>
+		<interceptor>
+			
+			<mapping path="/reservation" />
+			
+			
+			<beans:ref bean="loginInterceptor"/>
+			
+		</interceptor>
+	</interceptors>
 	
 	
 </beans:beans>
