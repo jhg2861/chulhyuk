@@ -69,7 +69,7 @@
                     <a class="nav-link" href="#">공지사항</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Q&A</a>
+                    <a class="nav-link" href="listboard">Q&A</a>
                   </li>
                 </ul>
               </div>
