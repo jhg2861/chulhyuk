@@ -11,7 +11,7 @@
     <title>KITA의원</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link href="resources/Style.css" rel="stylesheet">
+    <link href="resources/Style.css?ver=1" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
         <div class="box" id="box_head">
             <div id="box_account">
                 <c:if test="${sessionScope.loginId==null}">
-                	<span class="text-muted" id="account_text"><a href="#">회원가입</a> <a href="#">로그인</a></span>
+                	<span class="text-muted" id="account_text"><a href="join">회원가입</a> <a href="login">로그인</a></span>
                	</c:if>
                	<c:if test="${sessionScope.loginId!=null}">
 						<span id="account_text">${sessionScope.loginName}님 환영합니다</span>
@@ -69,7 +69,7 @@
                     <a class="nav-link" href="#">공지사항</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Q&A</a>
+                    <a class="nav-link" href="listboard">Q&A</a>
                   </li>
                 </ul>
               </div>
