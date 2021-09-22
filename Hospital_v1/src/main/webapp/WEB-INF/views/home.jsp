@@ -21,7 +21,7 @@
         <div class="box" id="box_head">
             <div id="box_account">
                 <c:if test="${sessionScope.loginId==null}">
-                	<span class="text-muted" id="account_text"><a href="#">회원가입</a> <a href="#">로그인</a></span>
+                	<p><a class="account_link" href="#">회원가입</a> <a class="account_link" href="#">로그인</a></p>
                	</c:if>
                	<c:if test="${sessionScope.loginId!=null}">
 						<span id="account_text">${sessionScope.loginName}님 환영합니다</span>
@@ -262,6 +262,7 @@
             <p class="user-select-none">02-<br>1566-<br>5114</p>
           </div>
         </div>
+       </div>
     </div>
 </body>
 </html>
