@@ -2,10 +2,10 @@
 -- 
 DROP TABLE h_reply;
 DROP TABLE h_board;
-
+DROP TABLE reservation;
 DROP SEQUENCE h_reply_seq;
 DROP SEQUENCE h_board_seq;
-
+DROP SEQUENCE reservation_seq;
 -- 게시판 (Board)
 CREATE TABLE h_board
 (
@@ -36,3 +36,16 @@ CREATE TABLE h_reply
 );
 
 CREATE SEQUENCE h_reply_seq;
+
+--예약
+CREATE TABLE reservation
+(
+	reservation_num number primary key,	-- 예약번호
+	username   varchar2(50) not null,	-- 아이디
+	reservation_date date not null,	-- 예약날짜
+	treatment_kind varchar(20) default '검진'	,	-- 진료종류
+	reservation_time varchar(50), -- 예약시간
+	userid varchar2(50) not null references members(userid)
+);
+
+CREATE SEQUENCE reservation_seq;
