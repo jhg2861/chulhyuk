@@ -66,7 +66,7 @@
                     <a class="nav-link" href="#">찾아오시는 길</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">공지사항</a>
+                    <a class="nav-link" href="listboard2">공지사항</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="listboard">Q&A</a>
@@ -170,7 +170,7 @@
             <div id="cell_1_1">Q&A</div>
             <div id="cell_1_2">궁금하신것이 있으시다면<br>
             Q&A에서 확인해보세요!</div>
-            <p><a class="btn btn-secondary" href="#">지금 확인해보기</a></p>
+            <p><a class="btn btn-secondary" href="listboard">지금 확인해보기</a></p>
           </div>
           <div class="cell" id="cell_2">
             <div id="cell_2_1">진료안내</div>

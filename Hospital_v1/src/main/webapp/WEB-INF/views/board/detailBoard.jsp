@@ -12,8 +12,8 @@
     <title>qna</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="resources/style/detail.css?ver=2">
     <link href="resources/Style.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/style/detail.css?ver=2">
 	
 <style>
 	
@@ -143,6 +143,7 @@ function boardUpdate() {
 		
 		<h3> Q&A 게시판 </h3>
 		<input type="text" id="boardnum" name="boardnum" value="${board.boardnum}" hidden>
+		<input type="text" id="boardtype" name="boardtype" value="qna" hidden>
 		<table id="contentstable">
 			<tr>
 				<td colspan="2" style="font-weight : bolder">${board.title}</td>
@@ -164,18 +165,18 @@ function boardUpdate() {
 					</c:if>
 				</td>				
 			</tr>
-			<tr><td colspan="2" style="border-bottom: none"></tr>
+			<tr><td colspan="2" style="border-bottom: none"></td></tr>
 			<tr>
-				<th class="btn" style="text-align:left">
+				<th style="text-align:left">
 					<input type="button" value="글목록" onclick="boardList();">
 				</th>
-				<th class="btn" style="text-align:right;">
+				<th style="text-align:right">
 					<!-- 글삭제와 수정은 로그인한 사람과 해당글을 쓴 사람과 같아야 할 수 있다. -->
-					<input type="button" value="글삭제" onclick="boardDelete();">
-					<input type="button" value="글수정" onclick="boardUpdate();">				
-				</th>
-			</tr>
-		</table>	
+					<input type="button"  value="글삭제" onclick="boardDelete();">
+					<input type="button"  value="글수정" onclick="boardUpdate();">				
+				</th> 
+			</tr>		
+		</table>
 		<br>
 		<!-- 댓글 입력 : 로그인한 사람만 보여야 함  -->
 		<c:if test="${sessionScope.loginId != null }">

@@ -38,7 +38,7 @@ public class BoardRepository {
 	 * @param searchItem 
 	 * @return 게시글 전체 목록
 	 */
-	public List<BoardVO> selectAll(int srow, int erow, String searchItem, String searchWord) {
+	public List<BoardVO> selectAll(int srow, int erow, String searchItem, String searchWord, String boardtype) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		Map<String, Object> search = new HashMap<>();
 		
@@ -46,6 +46,7 @@ public class BoardRepository {
 		search.put("searchWord", searchWord);
 		search.put("srow", srow);
 		search.put("erow", erow);
+		search.put("boardtype", boardtype);
 		
 		List<BoardVO> list = null;
 		try {
@@ -100,12 +101,13 @@ public class BoardRepository {
 		}
 		return result;
 	}
-	public int getBoardCount(String searchItem, String searchWord) {
+	public int getBoardCount(String searchItem, String searchWord, String boardtype) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		Map<String, String> search = new HashMap<String, String>();	
 		
 		search.put("searchItem", searchItem);
 		search.put("searchWord", searchWord);
+		search.put("boardtype", boardtype);
 		
 		int totlaRecordCount = 0;
 		

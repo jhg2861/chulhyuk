@@ -44,6 +44,7 @@ public class ReplyController {
 	public void insert(ReplyVO reply) {
 
 		int result = repository.insert(reply);
+		System.out.println(reply);
 		int result2 = boardRepository.replyCountUpdate(reply.getBoardnum());
 		return;
 	}

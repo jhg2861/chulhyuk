@@ -9,6 +9,7 @@
 INSERT INTO h_board
 (
 	boardnum
+	, boardtype
 	, userid
 	, title
 	, text
@@ -20,6 +21,7 @@ INSERT INTO h_board
 VALUES
 (
 	h_board_seq.nextval
+	, #{boardtype}
 	, #{userid}
 	, #{title}
 	, #{text}
@@ -39,6 +41,7 @@ select * from
     (
         SELECT
             boardnum
+            , boardtype
             , userid
             , title
             , text
@@ -55,6 +58,8 @@ select * from
             <when test="searchItem == 'text'">text</when>	
         </choose>
         like '%' || #{searchWord} || '%'
+        AND
+        boardtype = #{boardtype}
         ORDER BY boardnum DESC
     ) b
 )
@@ -64,6 +69,7 @@ where n &gt;= #{srow} and n &lt;= #{erow}
 <select id="selectOne" parameterType="int" resultType="Board">
 SELECT
 	boardnum
+	, boardtype
 	, userid
 	, title
 	, text
@@ -117,6 +123,9 @@ where
 	<when test="searchItem == 'text'">text</when>	
 	</choose>
 like '%' || #{searchWord} || '%'
+AND
+boardtype = #{boardtype}
+
 
 </select>
 

@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class BoardVO {
 	private int boardnum;
+	private String boardtype;
 	private String userid;
 	private String title;
 	private String text;
@@ -12,5 +13,5 @@ public class BoardVO {
 	private String regdate;
 	private String originalfile;
 	private String savedfile;
-	private int replycount;
+	private int replycount;	
 }

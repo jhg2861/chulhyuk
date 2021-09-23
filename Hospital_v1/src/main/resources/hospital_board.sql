@@ -10,6 +10,7 @@ DROP SEQUENCE reservation_seq;
 CREATE TABLE h_board
 (
 	boardnum number         primary key,	-- 게시글 번호
+	boardtype varchar2(50) not null,          -- 게시판 타입
 	userid   varchar2(50)   not null,	-- 작성자 아이디
 	title    varchar2(200)  not null,	-- 글제목
 	text     varchar2(4000) not null,	-- 글내용
@@ -17,7 +18,7 @@ CREATE TABLE h_board
 	regdate  date default sysdate,		-- 등록일
 	originalfile varchar2(300),		-- 첨부 파일명(원래이름)
 	savedfile    varchar2(300),		-- 첨부 파일명(실제 파일에 저장된 이름)
-	replycount number default 0             -- 댓글 수
+	replycount number default 0            -- 댓글 수
 );
 
 CREATE SEQUENCE h_board_seq;
@@ -26,7 +27,7 @@ CREATE SEQUENCE h_board_seq;
 CREATE TABLE h_reply
 (
 	replynum  number primary key,		-- 댓글 번호
-	boardnum  number not null references board(boardnum), -- 참조하는 본문글번호
+	boardnum  number not null references h_board(boardnum), -- 참조하는 본문글번호
 	userid    varchar2(50)   not null,	-- 댓글 작성자 아이디
 	replytext varchar2(1000) not null,	-- 댓글 내용
 	regdate   date default sysdate,	-- 댓글 작성일

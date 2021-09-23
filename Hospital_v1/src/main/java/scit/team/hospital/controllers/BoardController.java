@@ -38,25 +38,26 @@ public class BoardController {
 	final String uploadPath = "/boardfile";
 
 	@RequestMapping("/listboard")
-	public String listboard(@RequestParam(value = "searchItem", defaultValue = "title") String searchItem,
+	public String listQna(@RequestParam(value = "searchItem", defaultValue = "title") String searchItem,
 			@RequestParam(value = "searchWord", defaultValue = "") String searchWord,
 			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
 
 		logger.info("searchItem : {}", searchItem);
 		logger.info("searchWord : {}", searchWord);
 		logger.info("요청한페이지 : {}", currentPage);
+		String boardtype = "qna";
 
 		// paging
-		int totalRecordCount = repository.getBoardCount(searchItem, searchWord);
+		int totalRecordCount = repository.getBoardCount(searchItem, searchWord, boardtype);
 		logger.info("글 전체 개수 : {}", totalRecordCount);
 		
 		PageNavigator navi = new PageNavigator(currentPage, totalRecordCount);
 		
 		int totalPageCount = navi.getTotalPageCount();
 		int srow = navi.getSrow();
-		int erow = navi.getErow();
+		int erow = navi.getErow();		
 		
-		List<BoardVO> list = repository.selectAll(srow, erow, searchItem, searchWord);
+		List<BoardVO> list = repository.selectAll(srow, erow, searchItem, searchWord, boardtype);
 
 		model.addAttribute("list", list);
 		model.addAttribute("searchItem", searchItem);
@@ -65,9 +66,46 @@ public class BoardController {
 	
 		model.addAttribute("currentPage", navi.getCurrentPage());
 		model.addAttribute("navi", navi);
-
-		return "board/listBoard";
+		
+		return "board/qnaList";
 	}
+	
+	@RequestMapping("/listboard2")
+	public String listNotice(@RequestParam(value = "searchItem", defaultValue = "title") String searchItem,
+			@RequestParam(value = "searchWord", defaultValue = "") String searchWord,
+			@RequestParam(value = "currentPage", defaultValue = "1") int currentPage, Model model) {
+
+		logger.info("searchItem : {}", searchItem);
+		logger.info("searchWord : {}", searchWord);
+		logger.info("요청한페이지 : {}", currentPage);
+		String boardtype = "notice";
+
+		// paging
+		int totalRecordCount = repository.getBoardCount(searchItem, searchWord, boardtype);
+		logger.info("글 전체 개수 : {}", totalRecordCount);
+		
+		PageNavigator navi = new PageNavigator(currentPage, totalRecordCount);
+		
+		int totalPageCount = navi.getTotalPageCount();
+		int srow = navi.getSrow();
+		int erow = navi.getErow();
+		
+		
+		List<BoardVO> list = repository.selectAll(srow, erow, searchItem, searchWord, boardtype);
+
+		model.addAttribute("list", list);
+		model.addAttribute("searchItem", searchItem);
+		model.addAttribute("searchWord", searchWord);
+		//model.addAttribute("totalRecordCount", totalRecordCount);
+	
+		model.addAttribute("currentPage", navi.getCurrentPage());
+		model.addAttribute("navi", navi);
+		
+		System.out.println(list);
+		
+		return "board/noticeList";
+	}
+	
 
 	/**
 	 * 글 등록을 위한 화면 요청
@@ -77,7 +115,13 @@ public class BoardController {
 	@RequestMapping("/writeboard")
 	public String writeboard() {
 
-		return "board/writeBoard";
+		return "board/writeQna";
+	}
+	
+	@RequestMapping("/writeboard2")
+	public String writeboard2() {
+
+		return "board/writeNotice";
 	}
 
 	/**
@@ -85,7 +129,7 @@ public class BoardController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/writeboard", method = RequestMethod.POST)
+	@RequestMapping(value = {"/writeboard","/wirteboard2"}, method = RequestMethod.POST)
 	public String writeboard(BoardVO board, MultipartFile upload) {
 
 		if(!upload.isEmpty()) {
@@ -98,9 +142,17 @@ public class BoardController {
 		
 		int result = repository.insert(board); 
 		logger.info("게시글 등록 여부 : {}", result);
+		String boardtype ="";
+		if(board.getBoardtype().equals("qna")) {
+			boardtype = "";
+		}
+		else {
+			boardtype = "2";
+		}
 		 
-		return "redirect:listboard";
+		return "redirect:listboard" + boardtype;
 	}
+	
 
 	@RequestMapping("/detailboard")
 	public String detailboard(int boardnum, Model model) {
