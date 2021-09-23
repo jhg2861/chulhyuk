@@ -1,3 +1,4 @@
+
 body{
     margin:0;
 }
@@ -352,4 +353,18 @@ body{
       margin-top: 7rem;
     }
   }
+  
+  
+  
+/* change link color to black - dongho 9/22 */
+	a, a:link, a:visited, a:active, a:hover {
+		text-decoration:none;
+		color : black;
+	}
+	a:hover {
+		font-weight : bolder;
+		text-decoration:underline;
+		/* color : #f00; */
+	}
+  
   

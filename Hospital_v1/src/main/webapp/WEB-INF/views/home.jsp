@@ -11,7 +11,7 @@
     <title>KITA의원</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link href="resources/Style.css" rel="stylesheet">
+    <link href="resources/Style.css?ver=1" rel="stylesheet">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
         <div class="box" id="box_head">
             <div id="box_account">
                 <c:if test="${sessionScope.loginId==null}">
-                	<span class="text-muted" id="account_text"><a href="#">회원가입</a> <a href="#">로그인</a></span>
+                	<span class="text-muted" id="account_text"><a href="join">회원가입</a> <a href="login">로그인</a></span>
                	</c:if>
                	<c:if test="${sessionScope.loginId!=null}">
 						<span id="account_text">${sessionScope.loginName}님 환영합니다</span>
@@ -60,16 +60,16 @@
                     <a class="nav-link" href="#">진료시간</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">예약</a>
+                    <a class="nav-link" href="reservation">예약</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">찾아오시는 길</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">공지사항</a>
+                    <a class="nav-link" href="listboard2">공지사항</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Q&A</a>
+                    <a class="nav-link" href="listboard">Q&A</a>
                   </li>
                 </ul>
               </div>
@@ -170,7 +170,7 @@
             <div id="cell_1_1">Q&A</div>
             <div id="cell_1_2">궁금하신것이 있으시다면<br>
             Q&A에서 확인해보세요!</div>
-            <p><a class="btn btn-secondary" href="#">지금 확인해보기</a></p>
+            <p><a class="btn btn-secondary" href="listboard">지금 확인해보기</a></p>
           </div>
           <div class="cell" id="cell_2">
             <div id="cell_2_1">진료안내</div>

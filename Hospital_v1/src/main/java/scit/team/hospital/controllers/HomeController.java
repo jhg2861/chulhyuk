@@ -1,4 +1,4 @@
-package scit.team.hospital;
+package scit.team.hospital.controllers;
 
 import java.text.DateFormat;
 import java.util.Date;
